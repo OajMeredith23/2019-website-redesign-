@@ -2,8 +2,10 @@ $bg-color: #E8E8E8
 $accent: #f3f3f3
 $text: #383838
 
+$max-width: 1088px
 $padding: 0 1.6%
 $margin: 1.6%
+$grid-gap: 0.6%
 @import "reset"
 @import "typography"
 @import "nav"
@@ -25,8 +27,6 @@ body
     width: 100%
     height: 100%
     padding: 0
-    // border: 5px solid grey
-    // overflow: hidden
 
 .full-img
     width: 100%
@@ -34,7 +34,8 @@ body
     object-fit: cover
 
 .main
-    max-width: 1366px
+    max-width: $max-width
+    margin: 0 auto
     overflow: hidden
 
 .block 
@@ -42,11 +43,13 @@ body
     margin: 5em 0
     position: relative
 
-#landing
+
+.landing-block
     padding-top: $nav-height + 5px
-    min-height: 100vh 
-    display: flex 
-    flex-direction: column
+    @media(max-width: 960px)
+        min-height: 100vh 
+        display: flex 
+        flex-direction: column
 
 .img-container
     width: 100%
@@ -61,19 +64,123 @@ body
 
 
 #work 
-    min-height: 400vh
+    padding-bottom: 100px
 $offset-top: 50px
-.img-shadow 
-    position: absolute
-    width: 100%
-    height: calc(100% + 50px) // + $offset-top // var will not work with calc()
+
+.img-shadow
     z-index: -1
     background: $accent
-    top: -$offset-top
+@media(max-width: 959px)
+    .img-shadow 
+        position: absolute
+        width: 100%
+        height: calc(100% + 50px) // + $offset-top // var will not work with calc()
+        top: -$offset-top
 
-.img-shadow_left 
-    left: -33%
-    box-shadow: 3px 6px 6px rgba(0,0,0,.01)
-.img-shadow_right
-    box-shadow: -3px -6px 12px rgba(0,0,0, .01)
-    left: 33%
+    .img-shadow_left 
+        left: -33%
+        box-shadow: 3px 6px 6px rgba(0,0,0,.01)
+    .img-shadow_right
+        box-shadow: -3px -6px 12px rgba(0,0,0, .01)
+        left: 33%
+    
+    .header-accent
+        display: none
+@media(min-width:960px) 
+    @supports(display: grid)
+
+        .main 
+            overflow: visible
+
+        .landing-block 
+            margin: 0 auto
+            padding-top: 100px
+            min-height: 100vh
+            display: grid 
+            grid-gap: $grid-gap
+            grid-template-columns: repeat(12, 1fr)
+            grid-template-rows: 60vh 100px
+
+        .big-header 
+            font-size: 6em
+            grid-row: 1 
+            grid-column: 2 / -1
+            align-self: flex-end
+
+        .landing-img.img-container
+            grid-column: 6 / -2
+            grid-row: 1
+
+        .landing-text
+            grid-row: 2
+            grid-column: 3 / span 4
+        
+        .block 
+           min-height: 100vh
+           display: grid 
+           grid-template-rows: 40px 60vh minmax(auto, 100px)
+           grid-template-columns: repeat(12, 1fr)
+
+        .img-container
+           height: 100%
+           grid-row: 2
+
+        .img-container_left
+            grid-column: 1 / span 7
+
+        .img-container_right
+            grid-column: 5 / -1
+
+        .img-shadow 
+            grid-row: 1 / -1
+
+        .img-shadow_left
+            grid-column: 2 / span 4
+
+        .img-shadow_right
+            grid-column: 7 / -2
+
+        .header 
+            position: relative
+            align-self: flex-end
+            grid-row: 3 
+               
+
+            &-left 
+                grid-column: 1 / span 2
+                &:before 
+                    content: ''
+                    position: absolute
+                    height: 5px
+                    width: 75px 
+                    background: $accent 
+                    bottom: 0
+                    right: -77px
+            &-right 
+                grid-column: 9 / -1
+                &:before 
+                    content: ''
+                    position: absolute
+                    height: 5px
+                    width: 75px 
+                    background: $accent 
+                    bottom: 0
+                    left: -80px
+
+        .extras-grid
+            display: grid 
+            grid-gap: $grid-gap
+            grid-template-columns: repeat(12, 1fr)
+            grid-template-rows: 40px 60vh 40px
+            .block 
+                grid-row: 2
+                display: flex
+                flex-direction: column
+                min-height: auto
+                margin: 0
+                grid-column: span 4
+
+                .header 
+                    align-self: flex-start
+                .img-container
+                    min-height: 60vh

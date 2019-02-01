@@ -40,10 +40,12 @@ p {
   position: fixed;
   z-index: 5;
   width: 100%;
+  max-width: 1088px;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
-      align-items: center; }
+      align-items: center;
+  margin: 0 auto; }
 
 .nav-item {
   display: inline-block;
@@ -100,7 +102,8 @@ body {
   object-fit: cover; }
 
 .main {
-  max-width: 1366px;
+  max-width: 1088px;
+  margin: 0 auto;
   overflow: hidden; }
 
 .block {
@@ -108,13 +111,15 @@ body {
   margin: 5em 0;
   position: relative; }
 
-#landing {
-  padding-top: 45px;
-  min-height: 100vh;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column; }
+.landing-block {
+  padding-top: 45px; }
+  @media (max-width: 960px) {
+    .landing-block {
+      min-height: 100vh;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-direction: column;
+          flex-direction: column; } }
 
 .img-container {
   width: 100%;
@@ -128,20 +133,110 @@ body {
   max-width: 75%; }
 
 #work {
-  min-height: 400vh; }
+  padding-bottom: 100px; }
 
 .img-shadow {
-  position: absolute;
-  width: 100%;
-  height: calc(100% + 50px);
   z-index: -1;
-  background: #f3f3f3;
-  top: -50px; }
+  background: #f3f3f3; }
 
-.img-shadow_left {
-  left: -33%;
-  box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.01); }
+@media (max-width: 959px) {
+  .img-shadow {
+    position: absolute;
+    width: 100%;
+    height: calc(100% + 50px);
+    top: -50px; }
+  .img-shadow_left {
+    left: -33%;
+    box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.01); }
+  .img-shadow_right {
+    box-shadow: -3px -6px 12px rgba(0, 0, 0, 0.01);
+    left: 33%; }
+  .header-accent {
+    display: none; } }
 
-.img-shadow_right {
-  box-shadow: -3px -6px 12px rgba(0, 0, 0, 0.01);
-  left: 33%; }
+@media (min-width: 960px) {
+  @supports (display: grid) {
+    .main {
+      overflow: visible; }
+    .landing-block {
+      margin: 0 auto;
+      padding-top: 100px;
+      min-height: 100vh;
+      display: grid;
+      grid-gap: 0.6%;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: 60vh 100px; }
+    .big-header {
+      font-size: 6em;
+      grid-row: 1;
+      grid-column: 2 / -1;
+      -ms-flex-item-align: end;
+          align-self: flex-end; }
+    .landing-img.img-container {
+      grid-column: 6 / -2;
+      grid-row: 1; }
+    .landing-text {
+      grid-row: 2;
+      grid-column: 3 / span 4; }
+    .block {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: 40px 60vh minmax(auto, 100px);
+      grid-template-columns: repeat(12, 1fr); }
+    .img-container {
+      height: 100%;
+      grid-row: 2; }
+    .img-container_left {
+      grid-column: 1 / span 7; }
+    .img-container_right {
+      grid-column: 5 / -1; }
+    .img-shadow {
+      grid-row: 1 / -1; }
+    .img-shadow_left {
+      grid-column: 2 / span 4; }
+    .img-shadow_right {
+      grid-column: 7 / -2; }
+    .header {
+      position: relative;
+      -ms-flex-item-align: end;
+          align-self: flex-end;
+      grid-row: 3; }
+      .header-left {
+        grid-column: 1 / span 2; }
+        .header-left:before {
+          content: '';
+          position: absolute;
+          height: 5px;
+          width: 75px;
+          background: #f3f3f3;
+          bottom: 0;
+          right: -77px; }
+      .header-right {
+        grid-column: 9 / -1; }
+        .header-right:before {
+          content: '';
+          position: absolute;
+          height: 5px;
+          width: 75px;
+          background: #f3f3f3;
+          bottom: 0;
+          left: -80px; }
+    .extras-grid {
+      display: grid;
+      grid-gap: 0.6%;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: 40px 60vh 40px; }
+      .extras-grid .block {
+        grid-row: 2;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+            flex-direction: column;
+        min-height: auto;
+        margin: 0;
+        grid-column: span 4; }
+        .extras-grid .block .header {
+          -ms-flex-item-align: start;
+              align-self: flex-start; }
+        .extras-grid .block .img-container {
+          min-height: 60vh; } } }
