@@ -1,9 +1,11 @@
+$nav-height: 40px
 .nav-bar
+    padding: -$padding
     height: 40px
     position: fixed
+    z-index: 5
     width: 100%
     display: flex 
-    justify-content: flex-end
     align-items: center
 
 .nav-item
@@ -12,14 +14,21 @@
     color: $text
     text-decoration: none 
     margin: 0 1.6%
+    font-size: 1.2em
+    height: 1.2em
 
 .nav-header 
     align-self: center 
     flex-grow: 10
-    display: inline 
-    text-align: left
+    display: flex 
+    align-items: center
+    h1
+        display: inline 
+        font-size: 1.2em
+        height: 1.2em
 
 .nav-icons 
     display: flex 
-    min-width: 85px
+    min-width: 125px
+    font-size: 0.8em
     justify-content: space-around
