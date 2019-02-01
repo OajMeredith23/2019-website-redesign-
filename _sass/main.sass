@@ -164,6 +164,7 @@ $offset-top: 50px
         .block 
            min-height: 100vh
            display: grid 
+           grid-gap: $grid-gap
            grid-template-rows: 40px 60vh minmax(auto, 100px)
            grid-template-columns: repeat(12, 1fr)
 
@@ -172,7 +173,7 @@ $offset-top: 50px
            grid-row: 2
 
         .img-container_left
-            grid-column: 1 / span 7
+            grid-column: 1 / span 8
 
         .img-container_right
             grid-column: 5 / -1
@@ -203,7 +204,7 @@ $offset-top: 50px
                     bottom: 0
                     right: -77px
             &-right 
-                grid-column: 9 / -1
+                grid-column: 10 / -1
                 &:before 
                     content: ''
                     position: absolute
