@@ -201,6 +201,15 @@ body {
   .stat-item > ul > li, .stat-item h2 {
     text-align: center; }
 
+.footer {
+  min-height: 20vh;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center; }
+
 @media (min-width: 960px) {
   @supports (display: grid) {
     .main {
