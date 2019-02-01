@@ -134,6 +134,16 @@ body {
 .body-text {
   max-width: 75%; }
 
+.header {
+  -webkit-transform: translateY(50px);
+          transform: translateY(50px);
+  opacity: 0; }
+  .header.animate {
+    opacity: 1;
+    transition: .6s ease-in-out;
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+
 #work {
   padding-bottom: 100px; }
 
@@ -170,7 +180,7 @@ body {
 
 .project-section {
   margin: 100px 0; }
-  .project-section h1, .project-section p {
+  .project-section h1, .project-section h2, .project-section h3, .project-section h4, .project-section h5, .project-section h6, .project-section p {
     padding: 1.6%; }
   .project-section .img-container {
     padding: 10px 10px;
@@ -250,7 +260,13 @@ body {
     .img-container_right {
       grid-column: 5 / -1; }
     .img-shadow {
+      -webkit-transform: scaleY(0);
+              transform: scaleY(0);
       grid-row: 1 / -1; }
+      .img-shadow.animate {
+        transition: .5s ease-out;
+        -webkit-transform: scaleY(1);
+                transform: scaleY(1); }
     .img-shadow_left {
       grid-column: 2 / span 4; }
     .img-shadow_right {
