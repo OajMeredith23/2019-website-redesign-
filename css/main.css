@@ -154,6 +154,40 @@ body {
   .header-accent {
     display: none; } }
 
+.project-landing .img-shadow {
+  display: none; }
+
+.project-section {
+  margin: 100px 0; }
+  .project-section h1, .project-section p {
+    padding: 1.6%; }
+  .project-section .img-container {
+    margin: 10px 0;
+    display: inline-block; }
+
+.research-stats {
+  margin: 50px 0;
+  min-height: 50vh;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around; }
+
+.stat-item {
+  display: inline-block;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-direction: column;
+      flex-direction: column; }
+  .stat-item > ul > li, .stat-item h2 {
+    text-align: center; }
+
 @media (min-width: 960px) {
   @supports (display: grid) {
     .main {
