@@ -56,3 +56,47 @@ var addRemoveClass = debounce(function() {
 },15)
 
 window.addEventListener('scroll', addRemoveClass);
+
+
+//Smooth scrolling anchor links
+let scrollLinks = [];
+
+const scrollLink = document.querySelectorAll('a').forEach(link => {
+    if(link.getAttribute('href').includes('#')){
+        scrollLinks.push(link);
+    }
+})
+
+console.log(scrollLinks)
+
+
+
+if(scrollLinks.length > -1){
+    for (let i = 0; i < scrollLinks.length; i++) {
+
+        scrollLinks[i].addEventListener('click', function(e){
+            
+            
+            const attr = scrollLinks[i].getAttribute('href')
+            const target = document.getElementById(attr.substring(attr.indexOf('#') + 1));
+            
+            target.scrollIntoView({behavior: "smooth"})
+
+            if(target != null || target != undefined){
+                e.preventDefault();
+            }
+            
+        })
+        
+    }
+}
+
+// if(scrollLinks){
+//     for(link in scrollLinks){
+//         link.addEventListener('click', function(e){
+//             e.preventDefault();
+//         })
+//     }
+// }
+
+
