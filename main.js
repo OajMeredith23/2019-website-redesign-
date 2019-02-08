@@ -67,10 +67,6 @@ const scrollLink = document.querySelectorAll('a').forEach(link => {
     }
 })
 
-console.log(scrollLinks)
-
-
-
 if(scrollLinks.length > -1){
     for (let i = 0; i < scrollLinks.length; i++) {
 

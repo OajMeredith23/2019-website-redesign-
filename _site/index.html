@@ -21,7 +21,7 @@
             <ul class="nav-bar">
 
                 <li class="nav-item nav-header">
-                    <a href="index.html">
+                    <a href="index.html#landing">
                         <h1>Oliver Meredith</h1>
                     </a>
                 </li>
@@ -65,8 +65,8 @@
         
     
         <!-- See _Layouts/default.html for nav HTML  -->
-<section class="center-viewport">
-    <div id="landing" class="landing-block">
+<section class="center-viewport" id="landing" >
+    <div class="landing-block">
         <div class="profile-img landing-img img-container">
             <img src="assets/me.jpg" alt="" class="full-img">
         </div>
@@ -82,42 +82,45 @@
 
 <section id="work">
 
-    
-    <figure id="ux-research" class="block">
-        <div class="img-container img-container_left">
-            <a href="ux-research.html">
-                <img src="assets/ux-research/ux-cover.jpg" alt="Book showing wireframing drawing for user experience ideas" class="full-img">
+    <section class="center-viewport">
+        <figure id="ux-research" class="block">
+            <div class="img-container img-container_left">
+                <a href="ux-research.html">
+                    <img src="assets/ux-research/ux-cover.jpg" alt="Book showing wireframing drawing for user experience ideas" class="full-img">
+                </a>
+            </div>
+
+            <div class="img-shadow img-shadow_left animateIn"></div>
+
+
+            <a href="ux-research.html" class="header header-right animateIn">
+                <div class="header-accent animateIn"></div>
+                <h1>
+                    UX Research & Wireframing
+                </h1>
             </a>
-        </div>
+        </figure>
+    </section>
 
-        <div class="img-shadow img-shadow_left animateIn"></div>
+    <section class="center-viewport">
+        <figure id="computational-design" class="block">
+            <div class="img-container img-container_right">
+                <a href="computational-design.html">
+                    <img src="assets/computational-design/perlinNoiseDots-large-white-0.jpg" alt="Digital waveform, created through the drawing of many small dots at varying distances from each other" class="full-img">
+                </a>
+            </div>
+        
+            <div class="img-shadow animateIn img-shadow_right "></div>
+        
+            <a href="computational-design.html" class="header animateIn header-left">
+                <h1>
+                    Computational Design
+                </h1>
+                <div class="header-accent animateIn"></div>
 
-
-        <a href="ux-research.html" class="header header-right animateIn">
-            <div class="header-accent animateIn"></div>
-            <h1>
-                UX Research & Wireframing
-            </h1>
-        </a>
-    </figure>
-
-    <figure id="computational-design" class="block">
-        <div class="img-container img-container_right">
-            <a href="computational-design.html">
-                <img src="assets/computational-design/perlinNoiseDots-large-white-0.jpg" alt="Digital waveform, created through the drawing of many small dots at varying distances from each other" class="full-img">
             </a>
-        </div>
-    
-        <div class="img-shadow animateIn img-shadow_right "></div>
-    
-        <a href="computational-design.html" class="header animateIn header-left">
-            <h1>
-                Computational Design
-            </h1>
-            <div class="header-accent animateIn"></div>
-
-        </a>
-    </figure>
+        </figure>
+    </section>
 
     <section id="other-work" class="extras-grid">
         
