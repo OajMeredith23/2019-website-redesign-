@@ -86,13 +86,3 @@ if(scrollLinks.length > -1){
         
     }
 }
-
-// if(scrollLinks){
-//     for(link in scrollLinks){
-//         link.addEventListener('click', function(e){
-//             e.preventDefault();
-//         })
-//     }
-// }
-
-
