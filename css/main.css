@@ -212,6 +212,9 @@ body {
   -ms-flex-align: center;
       align-items: center; }
 
+.lightbox-img {
+  cursor: pointer; }
+
 .lightbox {
   left: 0;
   top: 0;
@@ -232,8 +235,8 @@ body {
     background: rgba(56, 56, 56, 0.9); }
 
 .lightbox-target {
-  max-width: 80vw;
-  max-height: 80vh; }
+  max-width: 90vw;
+  max-height: 90vh; }
 
 .lightbox-button {
   position: absolute;
