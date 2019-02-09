@@ -119,3 +119,32 @@ if(scrollLinks.length > -1){
 
     }
 }
+
+
+//lightbox function for images with class .lightbox-img 
+
+const lightboxItem = document.querySelectorAll('.lightbox-img');
+const lightboxTarget = document.querySelector('.lightbox-target')
+const lightbox = document.querySelector('.lightbox')
+
+console.log(lightboxTarget.parentElement);
+
+lightboxItem.forEach(e => {
+    e.addEventListener('click', function(){
+        lightbox.classList.add('focused');
+        lightboxTarget.src = e.getAttribute('src');
+
+    })
+})
+
+function closeLightBox(elem){
+    const target = document.querySelectorAll(elem);
+    target.forEach(c => {
+        c.addEventListener('click', function(){
+            c.parentElement.classList.remove('focused')
+            console.log(c)
+        })
+    })
+}
+
+closeLightBox('.lightbox-close')

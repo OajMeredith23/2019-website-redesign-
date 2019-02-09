@@ -136,12 +136,49 @@ $offset-top: 50px
     justify-content: center 
     align-items: center 
     
+.lightbox 
+    left: 0 
+    top: 0
+    right: 0 
+    bottom: 0
+    position: fixed
+    z-index: 10 
+    pointer-events: none
+    display: none
+    justify-content: center
+    align-items: center
+    
+        
+    &.focused 
+        display: flex 
+        pointer-events: auto
+        background: rgba($text, 0.9)
+        
+.lightbox-target
+    max-width: 80vw 
+    max-height: 80vh
+
+.lightbox-button
+    position: absolute
+    top: 10px
+    right: 10px
+    height: 20px
+    width: 20px
+    
+.lightbox-bg 
+    z-index: -1
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
 @media(min-width:960px) 
     @supports(display: grid)
 
         .main 
-            overflow: visible
+            overflow: hidden
 
+    
         .center-viewport
             min-height: 100vh
             display: flex 
@@ -305,6 +342,8 @@ $offset-top: 50px
                 
 
         @media(min-width:1080px)
+            .main 
+                overflow: visible
             .project-landing
                 h1
                     padding: 0
@@ -336,6 +375,8 @@ $offset-top: 50px
 
 
 @media(min-width: 1180px)
+    @meida (pointer: fine)
+
     .total-container 
         display: grid 
         grid-template-columns: 100px 1fr 100px
@@ -401,3 +442,4 @@ $offset-top: 50px
                 font-weight: bold
                 transform: translate(0, 0)
                 transition: .3s ease-out .2s
+    
