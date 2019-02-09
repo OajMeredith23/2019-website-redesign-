@@ -68,7 +68,7 @@ p {
   -ms-flex-align: center;
       align-items: center; }
   .nav-header h1 {
-    color: #FF8D54;
+    color: #2CD889;
     display: inline;
     font-size: 1.2em;
     height: 1.2em; }
@@ -149,7 +149,7 @@ body {
 .img-shadow {
   position: relative;
   z-index: -1;
-  background: #2CD889; }
+  background: #333; }
 
 @media (max-width: 959px) {
   .img-shadow {
@@ -287,7 +287,7 @@ body {
       .profile-img::after {
         content: '';
         position: absolute;
-        border: 10px solid #FF8D54;
+        border: 10px solid #2CD889;
         top: 20px;
         left: 20px;
         right: -20px;
@@ -350,7 +350,7 @@ body {
       position: absolute;
       z-index: -2;
       bottom: 0;
-      background-image: linear-gradient(to right, #FF8D54, #ff7c3b); }
+      background-image: linear-gradient(to right, #2CD889, #25c67c); }
       .header-accent.animateIn {
         -webkit-transform: translateX(-40px) scaleX(0.2);
                 transform: translateX(-40px) scaleX(0.2);
@@ -474,7 +474,7 @@ body {
       border-radius: 15px;
       border: none;
       display: inline-block;
-      background: #FF8D54;
+      background: #2CD889;
       position: relative;
       bottom: 5px;
       cursor: pointer;
