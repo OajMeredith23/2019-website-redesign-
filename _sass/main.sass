@@ -56,13 +56,11 @@ body
     width: 100%
     height: 75vh
     margin: 0 auto
-    box-shadow: 3px 6px 6px rgba($text, 0.1)
 
 .full-img
     width: 100%
     height: 100%
     object-fit: cover
-
 .align-left 
     object-position: 10%
 
@@ -81,7 +79,6 @@ $offset-top: 50px
     position: relative
     z-index: -1
     background: $accent
-
 @media(max-width: 959px)
     .img-shadow 
         position: absolute
@@ -137,9 +134,7 @@ $offset-top: 50px
     display: flex 
     justify-content: center 
     align-items: center 
-
-.lightbox-img 
-    cursor: pointer   
+    
 .lightbox 
     left: 0 
     top: 0
@@ -157,10 +152,13 @@ $offset-top: 50px
         display: flex 
         pointer-events: auto
         background: rgba($text, 0.9)
-
+        
+.lightbox-img 
+    cursor: pointer
+    
 .lightbox-target
-    max-width: 90vw 
-    max-height: 90vh
+    max-width: 80vw 
+    max-height: 80vh
 
 .lightbox-button
     position: absolute
@@ -259,10 +257,9 @@ $offset-top: 50px
 
         .header 
             position: relative
-            grid-row: 3
+            grid-row: 3 
             padding-left: $padding
-            h1
-                transition: .1s ease-out
+            transition: .4s ease-out
             &-left 
                 grid-column: 1 / span 4
                 h1 
@@ -272,27 +269,15 @@ $offset-top: 50px
                 h1 
                     margin-left: 33%
 
-            &:hover 
-                h1
-                    transform: translate(0, 3px)
-                    transition: .1s ease-out
-                .header-accent 
-                    transition: .2s ease-out
-                    transform: translate(3px, 0)
-                    // box-shadow:  inset 6px 3px 12px rgba(lighten($text, 40%), 0.2)
-
- 
-
 
         .header-accent
             width: 66%
             height: 100% 
             transform-origin: bottom left
             position: absolute
-            z-index: -2
+            z-index: -1
             bottom: 0
-            background-image: linear-gradient(to right, $brand-color, darken($brand-color, 5%))
-            // box-shadow:  inset 6px 3px 6px rgba($text, 0.1)
+            background: $brand-color
             &.animateIn
                 transform: translateX(-40px) scaleX(0.2)
                 transition: 1s ease-out
@@ -345,6 +330,7 @@ $offset-top: 50px
                 grid-column: 5 / span 3
                 align-self: flex-end
             .img-shadow 
+                background: $accent
                 display: block
                 grid-row: 1 / -1
                 transform: scale(1)
@@ -458,4 +444,3 @@ $offset-top: 50px
                 font-weight: bold
                 transform: translate(0, 0)
                 transition: .3s ease-out .2s
-    

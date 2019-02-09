@@ -126,8 +126,7 @@ body {
 .img-container {
   width: 100%;
   height: 75vh;
-  margin: 0 auto;
-  box-shadow: 3px 6px 6px rgba(56, 56, 56, 0.1); }
+  margin: 0 auto; }
 
 .full-img {
   width: 100%;
@@ -213,9 +212,6 @@ body {
   -ms-flex-align: center;
       align-items: center; }
 
-.lightbox-img {
-  cursor: pointer; }
-
 .lightbox {
   left: 0;
   top: 0;
@@ -235,9 +231,12 @@ body {
     pointer-events: auto;
     background: rgba(56, 56, 56, 0.9); }
 
+.lightbox-img {
+  cursor: pointer; }
+
 .lightbox-target {
-  max-width: 90vw;
-  max-height: 90vh; }
+  max-width: 80vw;
+  max-height: 80vh; }
 
 .lightbox-button {
   position: absolute;
@@ -323,9 +322,8 @@ body {
     .header {
       position: relative;
       grid-row: 3;
-      padding-left: 0 1.6%; }
-      .header h1 {
-        transition: .1s ease-out; }
+      padding-left: 0 1.6%;
+      transition: .4s ease-out; }
       .header-left {
         grid-column: 1 / span 4; }
         .header-left h1 {
@@ -334,23 +332,15 @@ body {
         grid-column: 9 / -1; }
         .header-right h1 {
           margin-left: 33%; }
-      .header:hover h1 {
-        -webkit-transform: translate(0, 3px);
-                transform: translate(0, 3px);
-        transition: .1s ease-out; }
-      .header:hover .header-accent {
-        transition: .2s ease-out;
-        -webkit-transform: translate(3px, 0);
-                transform: translate(3px, 0); }
     .header-accent {
       width: 66%;
       height: 100%;
       -webkit-transform-origin: bottom left;
               transform-origin: bottom left;
       position: absolute;
-      z-index: -2;
+      z-index: -1;
       bottom: 0;
-      background-image: linear-gradient(to right, #2CD889, #25c67c); }
+      background: #2CD889; }
       .header-accent.animateIn {
         -webkit-transform: translateX(-40px) scaleX(0.2);
                 transform: translateX(-40px) scaleX(0.2);
@@ -406,6 +396,7 @@ body {
         -ms-flex-item-align: end;
             align-self: flex-end; }
       .project-landing .img-shadow {
+        background: #f3f3f3;
         display: block;
         grid-row: 1 / -1;
         -webkit-transform: scale(1);
