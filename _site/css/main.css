@@ -104,7 +104,7 @@ body {
   margin: 0 auto;
   overflow: hidden; }
 
-.portfolio-block {
+.block {
   padding: 1.6% 1.6%;
   margin: 5em 0;
   position: relative; }
@@ -149,7 +149,7 @@ body {
 .img-shadow {
   position: relative;
   z-index: -1;
-  background: #333; }
+  background: #f3f3f3; }
 
 @media (max-width: 959px) {
   .img-shadow {
@@ -296,18 +296,18 @@ body {
     .landing-text {
       grid-row: 2;
       grid-column: 2 / span 5; }
-    .portfolio-block {
+    .block {
       display: grid;
       padding: 0;
       grid-template-rows: 40px 50vh minmax(auto, 100px);
       grid-template-columns: repeat(12, 1fr); }
-      .portfolio-block .img-container {
+      .block .img-container {
         height: 100%;
         grid-row: 2; }
     .img-container_left {
-      grid-column: 1 / span 7; }
+      grid-column: 1 / span 8; }
     .img-container_right {
-      grid-column: 6 / -1; }
+      grid-column: 5 / -1; }
     .img-shadow {
       -webkit-transform: scaleY(0);
               transform: scaleY(0);
@@ -376,7 +376,7 @@ body {
       grid-gap: 0.6%;
       grid-template-columns: repeat(12, 1fr);
       grid-template-rows: 40px 60vh 40px; }
-      .extras-grid .portfolio-block {
+      .extras-grid .block {
         grid-row: 2;
         display: -ms-flexbox;
         display: flex;
@@ -385,10 +385,10 @@ body {
         min-height: auto;
         margin: 0;
         grid-column: span 4; }
-        .extras-grid .portfolio-block .header {
+        .extras-grid .block .header {
           -ms-flex-item-align: start;
               align-self: flex-start; }
-        .extras-grid .portfolio-block .img-container {
+        .extras-grid .block .img-container {
           min-height: 60vh; }
     .project-landing {
       grid-template-rows: 40px minmax(100px, 50vh) minmax(100px, 150px); }

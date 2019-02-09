@@ -1,7 +1,6 @@
 $bg-color: #E8E8E8
 $accent: #f3f3f3
 $brand-color: #2CD889
-$complementary: #333
 $text: #383838
 
 $max-width: 1080px
@@ -36,7 +35,7 @@ body
     margin: 0 auto
     overflow: hidden
 
-.portfolio-block 
+.block 
     padding: 1.6% 1.6%
     margin: 5em 0
     position: relative
@@ -81,7 +80,7 @@ $offset-top: 50px
 .img-shadow
     position: relative
     z-index: -1
-    background: $complementary
+    background: $accent
 
 @media(max-width: 959px)
     .img-shadow 
@@ -229,7 +228,7 @@ $offset-top: 50px
             grid-row: 2
             grid-column: 2 / span 5
         
-        .portfolio-block 
+        .block 
             display: grid 
             padding: 0
             grid-template-rows: 40px 50vh minmax(auto, 100px)
@@ -240,10 +239,10 @@ $offset-top: 50px
                 grid-row: 2
 
         .img-container_left
-            grid-column: 1 / span 7
+            grid-column: 1 / span 8
 
         .img-container_right
-            grid-column: 6 / -1
+            grid-column: 5 / -1
 
         .img-shadow 
             transform: scaleY(0)
@@ -319,7 +318,7 @@ $offset-top: 50px
             grid-gap: $grid-gap
             grid-template-columns: repeat(12, 1fr)
             grid-template-rows: 40px 60vh 40px
-            .portfolio-block 
+            .block 
                 grid-row: 2
                 display: flex
                 flex-direction: column
