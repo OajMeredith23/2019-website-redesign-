@@ -59,12 +59,12 @@ window.addEventListener('scroll', addRemoveClass);
 
 
 
+//Create a list of items from the current page ofeach element with an ID, and class .anchor-target, links becomes clickable and scrolls to that item
 
 if(window.innerWidth >= 1280){
 
     let anchorLinks = [];
     const target = document.querySelector('ul.js-portfolio-links');
-    //TODO: get page URL and prepend to each link in anchorLinks array
     const anchorLink = document.querySelectorAll('.anchor-target');
     if(anchorLink.length){
 
@@ -75,8 +75,12 @@ if(window.innerWidth >= 1280){
             
             anchorLinks.push(`
                                 <a href="#${link}">
-                                    <li>${title}</li>
+                                    <li class="anchor-link animateIn">
+                                        <button type="button"></button>
+                                        <p>${title}</p>
+                                    </li>
                                 </a>
+                                
                               `);
         }
         
