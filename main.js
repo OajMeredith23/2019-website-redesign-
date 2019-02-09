@@ -119,8 +119,6 @@ if(scrollLinks.length > -1){
 
     }
 }
-
-
 //lightbox function for images with class .lightbox-img 
 
 const lightboxItem = document.querySelectorAll('.lightbox-img');
