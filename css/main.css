@@ -231,9 +231,6 @@ body {
     pointer-events: auto;
     background: rgba(56, 56, 56, 0.9); }
 
-.lightbox-img {
-  cursor: pointer; }
-
 .lightbox-target {
   max-width: 80vw;
   max-height: 80vh; }
