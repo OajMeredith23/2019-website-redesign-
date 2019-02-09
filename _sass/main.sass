@@ -4,7 +4,7 @@ $brand-color: #FF8D54
 $complementary: #2CD889
 $text: #383838
 
-$max-width: 1088px
+$max-width: 1080px
 $padding: 0 1.6%
 $margin: 1.6%
 $grid-gap: 0.6%
@@ -20,7 +20,7 @@ body
 
 .perlin-background
     pointer-events: none 
-    z-index: -1
+    z-index: -5
     position: absolute
     left: 0 
     top: 0 
@@ -138,13 +138,52 @@ $offset-top: 50px
     display: flex 
     justify-content: center 
     align-items: center 
+
+.lightbox-img 
+    cursor: pointer   
+.lightbox 
+    left: 0 
+    top: 0
+    right: 0 
+    bottom: 0
+    position: fixed
+    z-index: 10 
+    pointer-events: none
+    display: none
+    justify-content: center
+    align-items: center
     
+        
+    &.focused 
+        display: flex 
+        pointer-events: auto
+        background: rgba($text, 0.9)
+
+.lightbox-target
+    max-width: 90vw 
+    max-height: 90vh
+
+.lightbox-button
+    position: absolute
+    top: 10px
+    right: 10px
+    height: 20px
+    width: 20px
+    
+.lightbox-bg 
+    z-index: -1
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
 @media(min-width:960px) 
     @supports(display: grid)
 
         .main 
-            overflow: visible
+            overflow: hidden
 
+    
         .center-viewport
             min-height: 100vh
             display: flex 
@@ -320,6 +359,8 @@ $offset-top: 50px
                 
 
         @media(min-width:1080px)
+            .main 
+                overflow: visible
             .project-landing
                 h1
                     padding: 0
@@ -350,3 +391,72 @@ $offset-top: 50px
             
 
 
+@media(min-width: 1180px)
+    @meida (pointer: fine)
+
+    .total-container 
+        display: grid 
+        grid-template-columns: 100px 1fr 100px
+        margin: 0 auto
+        max-width: $max-width + 200px
+    .main 
+        grid-column: 2
+
+    .sidebar 
+        grid-column: 1 
+
+    .js-portfolio-links 
+        z-index: 10
+        position: sticky
+        width: 100%
+        top: calc(50% - 100px)
+    .landing-space 
+        height: 130vh
+    .anchor-link 
+        position: relative
+        margin: 15px 0
+        width: 20px
+        button 
+            width: 20px 
+            height: 20px
+            border-radius: 15px 
+            border: none 
+            display: inline-block
+            background: $brand-color
+            position: relative
+            bottom: 5px
+            cursor: pointer
+            opacity: 0
+            transform: translate(-100px, 0)
+            transition: .2s ease-out .2s
+        &.animate
+            button
+                transform: translate(0px, 0)
+                opacity: 1
+            
+
+        p
+            display: inline-block
+            white-space: nowrap
+            position: absolute
+            top: 0
+            left: 220%
+            z-index: 1
+            font-weight: bold
+            pointer-events: none
+            opacity: 0
+            transform: translate(-10px, 0)
+            transition: .2s ease-out
+        &:hover 
+            cursor: pointer
+            button 
+                // transform: scale(1.15)
+                box-shadow: 3px 6px 6px rgba($text, 0.05)
+                width: 230px
+                transition: .2s ease-out
+            p 
+                opacity: 1
+                font-weight: bold
+                transform: translate(0, 0)
+                transition: .3s ease-out .2s
+    

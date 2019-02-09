@@ -42,7 +42,7 @@ p {
   top: 10px;
   z-index: 5;
   width: 100%;
-  max-width: 1088px;
+  max-width: 1080px;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
@@ -89,7 +89,7 @@ body {
 
 .perlin-background {
   pointer-events: none;
-  z-index: -1;
+  z-index: -5;
   position: absolute;
   left: 0;
   top: 0;
@@ -100,7 +100,7 @@ body {
   padding: 0; }
 
 .main {
-  max-width: 1088px;
+  max-width: 1080px;
   margin: 0 auto;
   overflow: hidden; }
 
@@ -213,10 +213,51 @@ body {
   -ms-flex-align: center;
       align-items: center; }
 
+.lightbox-img {
+  cursor: pointer; }
+
+.lightbox {
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  z-index: 10;
+  pointer-events: none;
+  display: none;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center; }
+  .lightbox.focused {
+    display: -ms-flexbox;
+    display: flex;
+    pointer-events: auto;
+    background: rgba(56, 56, 56, 0.9); }
+
+.lightbox-target {
+  max-width: 90vw;
+  max-height: 90vh; }
+
+.lightbox-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  height: 20px;
+  width: 20px; }
+
+.lightbox-bg {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; }
+
 @media (min-width: 960px) {
   @supports (display: grid) {
     .main {
-      overflow: visible; }
+      overflow: hidden; }
     .center-viewport {
       min-height: 100vh;
       display: -ms-flexbox;
@@ -377,6 +418,8 @@ body {
       .project-section h1, .project-section h2, .project-section h3, .project-section h4, .project-section h5, .project-section h6, .project-section p {
         padding: 16px 0; }
     @media (min-width: 1080px) {
+      .main {
+        overflow: visible; }
       .project-landing h1 {
         padding: 0; }
       .project-section {
@@ -401,3 +444,70 @@ body {
       .img-row .img-container {
         margin: 0;
         grid-column: span 4; } } }
+
+@media (min-width: 1180px) {
+  @meida (pointer: fine);
+  .total-container {
+    display: grid;
+    grid-template-columns: 100px 1fr 100px;
+    margin: 0 auto;
+    max-width: 1280px; }
+  .main {
+    grid-column: 2; }
+  .sidebar {
+    grid-column: 1; }
+  .js-portfolio-links {
+    z-index: 10;
+    position: -webkit-sticky;
+    position: sticky;
+    width: 100%;
+    top: calc(50% - 100px); }
+  .landing-space {
+    height: 130vh; }
+  .anchor-link {
+    position: relative;
+    margin: 15px 0;
+    width: 20px; }
+    .anchor-link button {
+      width: 20px;
+      height: 20px;
+      border-radius: 15px;
+      border: none;
+      display: inline-block;
+      background: #2CD889;
+      position: relative;
+      bottom: 5px;
+      cursor: pointer;
+      opacity: 0;
+      -webkit-transform: translate(-100px, 0);
+              transform: translate(-100px, 0);
+      transition: .2s ease-out .2s; }
+    .anchor-link.animate button {
+      -webkit-transform: translate(0px, 0);
+              transform: translate(0px, 0);
+      opacity: 1; }
+    .anchor-link p {
+      display: inline-block;
+      white-space: nowrap;
+      position: absolute;
+      top: 0;
+      left: 220%;
+      z-index: 1;
+      font-weight: bold;
+      pointer-events: none;
+      opacity: 0;
+      -webkit-transform: translate(-10px, 0);
+              transform: translate(-10px, 0);
+      transition: .2s ease-out; }
+    .anchor-link:hover {
+      cursor: pointer; }
+      .anchor-link:hover button {
+        box-shadow: 3px 6px 6px rgba(56, 56, 56, 0.05);
+        width: 230px;
+        transition: .2s ease-out; }
+      .anchor-link:hover p {
+        opacity: 1;
+        font-weight: bold;
+        -webkit-transform: translate(0, 0);
+                transform: translate(0, 0);
+        transition: .3s ease-out .2s; } }
