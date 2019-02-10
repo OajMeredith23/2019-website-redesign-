@@ -414,7 +414,7 @@ body {
       .project-landing h1 {
         padding: 0; }
       .project-section {
-        padding: 0; }
+        padding: 50px 0 0 0; }
         .project-section h1, .project-section h2, .project-section h3, .project-section h4, .project-section h5, .project-section h6, .project-section p {
           padding: 0 0 1.6%; } }
     .research-stats {
@@ -447,45 +447,44 @@ body {
     grid-column: 2; }
   .sidebar {
     grid-column: 1; }
+  .landing-space {
+    height: 130vh; }
   .js-portfolio-links {
     z-index: 10;
     position: -webkit-sticky;
     position: sticky;
-    width: 100%;
-    top: calc(50% - 100px); }
-  .landing-space {
-    height: 130vh; }
+    height: 100vh;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    top: 0; }
   .anchor-link {
     position: relative;
     margin: 15px 0;
-    width: 20px; }
+    width: auto; }
     .anchor-link button {
-      width: 20px;
-      height: 20px;
-      border-radius: 15px;
+      width: 10px;
+      height: 30px;
+      display: inline;
+      border-radius: 50px;
+      padding: 0 16px;
       border: none;
-      display: inline-block;
       background: #2CD889;
-      position: relative;
-      bottom: 5px;
       cursor: pointer;
-      opacity: 0;
-      -webkit-transform: translate(-100px, 0);
-              transform: translate(-100px, 0);
-      transition: .2s ease-out .2s; }
-    .anchor-link.animate button {
-      -webkit-transform: translate(0px, 0);
-              transform: translate(0px, 0);
-      opacity: 1; }
+      -webkit-transform: translate(-100px, 0) scale(0.2);
+              transform: translate(-100px, 0) scale(0.2);
+      transition: .3s ease-out .2s;
+      will-change: transform; }
     .anchor-link p {
-      display: inline-block;
       white-space: nowrap;
-      position: absolute;
-      top: 0;
-      left: 220%;
       z-index: 1;
       font-weight: bold;
       pointer-events: none;
+      font-size: 16px;
+      will-change: transform, opacity;
       opacity: 0;
       -webkit-transform: translate(-10px, 0);
               transform: translate(-10px, 0);
@@ -494,11 +493,56 @@ body {
       cursor: pointer; }
       .anchor-link:hover button {
         box-shadow: 3px 6px 6px rgba(56, 56, 56, 0.05);
-        width: 230px;
+        background: #2CD889;
+        width: 25vw;
         transition: .2s ease-out; }
       .anchor-link:hover p {
         opacity: 1;
         font-weight: bold;
         -webkit-transform: translate(0, 0);
                 transform: translate(0, 0);
-        transition: .3s ease-out .2s; } }
+        transition: .3s ease-out; }
+      .anchor-link:hover .anchor-delay-1 {
+        transition-delay: inherit !important; }
+      .anchor-link:hover .anchor-delay-2 {
+        transition-delay: inherit !important; }
+      .anchor-link:hover .anchor-delay-3 {
+        transition-delay: inherit !important; }
+      .anchor-link:hover .anchor-delay-4 {
+        transition-delay: inherit !important; }
+      .anchor-link:hover .anchor-delay-5 {
+        transition-delay: inherit !important; }
+      .anchor-link:hover .anchor-delay-6 {
+        transition-delay: inherit !important; }
+      .anchor-link:hover .anchor-delay-7 {
+        transition-delay: inherit !important; }
+      .anchor-link:hover .anchor-delay-8 {
+        transition-delay: inherit !important; }
+      .anchor-link:hover .anchor-delay-9 {
+        transition-delay: inherit !important; }
+      .anchor-link:hover .anchor-delay-10 {
+        transition-delay: inherit !important; }
+  .animate button {
+    -webkit-transform: translate(0px, 0);
+            transform: translate(0px, 0);
+    transition: .4s ease-out; }
+  .anchor-delay-1 {
+    transition-delay: 0.15s !important; }
+  .anchor-delay-2 {
+    transition-delay: 0.3s !important; }
+  .anchor-delay-3 {
+    transition-delay: 0.45s !important; }
+  .anchor-delay-4 {
+    transition-delay: 0.6s !important; }
+  .anchor-delay-5 {
+    transition-delay: 0.75s !important; }
+  .anchor-delay-6 {
+    transition-delay: 0.9s !important; }
+  .anchor-delay-7 {
+    transition-delay: 1.05s !important; }
+  .anchor-delay-8 {
+    transition-delay: 1.2s !important; }
+  .anchor-delay-9 {
+    transition-delay: 1.35s !important; }
+  .anchor-delay-10 {
+    transition-delay: 1.5s !important; } }

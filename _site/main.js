@@ -35,7 +35,10 @@ function addRemoveClassScroll(target, addClass, addOrRemove = true){
         }
 
         if(functionAtHeight){
-            addOrRemove ? target.classList.add(addClass) : target.classList.remove(addClass)
+            
+            setTimeout(function(){
+                addOrRemove ? target.classList.add(addClass) : target.classList.remove(addClass)
+            }, 1000);
         }
     })
 
@@ -43,7 +46,6 @@ function addRemoveClassScroll(target, addClass, addOrRemove = true){
 
 var addRemoveClass = debounce(function() {
     //Gets the current scroll distance
-    wScroll = window.scrollY;
     //Parameters are
     //1.String = target, should be a class or tag, not ID as uses querySelectorAll
     //2.String = class to add/remove,
@@ -75,17 +77,29 @@ if(window.innerWidth >= 1280){
             
             anchorLinks.push(`
                                 <a href="#${link}">
-                                    <li class="anchor-link animateIn">
-                                        <button type="button"></button>
-                                        <p>${title}</p>
+                                    <li class="anchor-link">
+                                        <button class="anchor-button anchor-delay-${i + 1}"  type="button">
+                                            <p>${title}</p>
+                                        </button>
                                     </li>
                                 </a>
+                                `
+                            );
                                 
-                              `);
+
         }
+
         
         target.innerHTML = anchorLinks.join(' ');
     }
+
+    const anchorButton = document.querySelectorAll('.anchor-button')
+    anchorButton.forEach((elm, i) => {
+      elm.addEventListener('mouseover', function(){
+          console.log(`anchor-delay-${i}`)
+          elm.classList.remove(`anchor-delay-${i + 1}`);
+      })  
+    })
 }
 
 
@@ -125,7 +139,6 @@ const lightboxItem = document.querySelectorAll('.lightbox-img');
 const lightboxTarget = document.querySelector('.lightbox-target')
 const lightbox = document.querySelector('.lightbox')
 
-console.log(lightboxTarget.parentElement);
 
 lightboxItem.forEach(e => {
     e.addEventListener('click', function(){
@@ -146,3 +159,4 @@ function closeLightBox(elem){
 }
 
 closeLightBox('.lightbox-close')
+
