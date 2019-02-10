@@ -350,7 +350,7 @@ $offset-top: 50px
                 h1
                     padding: 0
             .project-section
-                padding: 0
+                padding: 50px 0 0 0 
                 h1, h2, h3, h4, h5, h6, p
                     padding:  0 $padding
         
@@ -390,57 +390,67 @@ $offset-top: 50px
     .sidebar 
         grid-column: 1 
 
+    .landing-space 
+        height: 130vh
     .js-portfolio-links 
         z-index: 10
         position: sticky
-        width: 100%
-        top: calc(50% - 100px)
-    .landing-space 
-        height: 130vh
+        height: 100vh 
+        display: flex 
+        justify-content: center
+        flex-direction: column 
+        // align-items: center
+        top: 0
+
     .anchor-link 
         position: relative
         margin: 15px 0
-        width: 20px
+        width: auto
         button 
-            width: 20px 
-            height: 20px
-            border-radius: 15px 
+            width: 10px
+            height: 30px
+            display: inline
+            border-radius: 50px 
+            padding: 0 16px
             border: none 
-            display: inline-block
             background: $brand-color
-            position: relative
-            bottom: 5px
             cursor: pointer
-            opacity: 0
-            transform: translate(-100px, 0)
-            transition: .2s ease-out .2s
-        &.animate
-            button
-                transform: translate(0px, 0)
-                opacity: 1
+            transform: translate(-100px, 0) scale(0.2)
+            transition: .3s ease-out .2s
+            will-change: transform
             
-
         p
-            display: inline-block
             white-space: nowrap
-            position: absolute
-            top: 0
-            left: 220%
             z-index: 1
             font-weight: bold
             pointer-events: none
+            font-size: 16px
+            will-change: transform, opacity
             opacity: 0
             transform: translate(-10px, 0)
             transition: .2s ease-out
         &:hover 
             cursor: pointer
             button 
-                // transform: scale(1.15)
                 box-shadow: 3px 6px 6px rgba($text, 0.05)
-                width: 230px
+                background: $brand-color
+                width: 25vw
                 transition: .2s ease-out
             p 
                 opacity: 1
                 font-weight: bold
                 transform: translate(0, 0)
-                transition: .3s ease-out .2s
+                transition: .3s ease-out
+            @for $i from 1 through 10
+                .anchor-delay-#{$i}
+                    transition-delay: inherit !important
+
+    &.animate
+        button
+            transform: translate(0px, 0)
+            transition: .4s ease-out
+    @for $i from 1 through 10
+        .anchor-delay-#{$i}
+            
+            transition-delay: #{$i*0.15}s !important
+            
