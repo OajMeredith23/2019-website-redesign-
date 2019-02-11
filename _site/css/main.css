@@ -498,7 +498,6 @@ body {
         transition: .2s ease-out; }
       .anchor-link:hover p {
         opacity: 1;
-        font-weight: bold;
         -webkit-transform: translate(0, 0);
                 transform: translate(0, 0);
         transition: .3s ease-out; }
