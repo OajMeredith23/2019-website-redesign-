@@ -10,6 +10,7 @@ $grid-gap: 0.6%
 @import "reset"
 @import "typography"
 @import "nav"
+@import "animations"
 
 #__bs_notify__
     opacity: .3
@@ -39,7 +40,38 @@ body
     padding: 1.6% 1.6%
     margin: 5em 0
     position: relative
+    display: flex 
+    flex-direction: column
+@media(max-width: 967px)
+    .header 
+        position: relative
+        .header-accent
+            position: absolute
+            top: -250%
+            left: 40px
+            overflow: hidden
+            height: 400%
+            z-index: -1
+            width: 100%
+            background: $brand-color
+.see-more 
+    width: 140px 
+    height: 45px
+    border: 5px solid $brand-color
+    // border-radius: 5px
+    align-self: flex-end
+    position: relative
+    font-weight: bold
 
+    box-shadow: 3px 6px 6px rgba($text, .1)
+    a 
+        display: flex 
+        justify-content: center
+        align-items: center
+        text-align: center
+        width: 100%
+        height: 100% 
+        font-size: 16px
 
 .landing-block
     margin-top: $nav-height + 5px
@@ -93,8 +125,6 @@ $offset-top: 50px
         box-shadow: -3px -6px 12px rgba(0,0,0, .01)
         left: 33%
     
-    .header-accent
-        display: none
 
 
 .project-landing 
@@ -229,65 +259,93 @@ $offset-top: 50px
         .block 
             display: grid 
             padding: 0
-            grid-template-rows: 40px 50vh minmax(auto, 100px)
+            grid-template-rows: 40px 50vh minmax(auto, 100px) 40px 40px
             grid-template-columns: repeat(12, 1fr)
-
+            grid-gap: 10px
+            padding: 16px
             .img-container
                 height: 100%
                 grid-row: 2
 
         .img-container_left
-            grid-column: 1 / span 8
+            grid-column: 1 / span 9
 
         .img-container_right
-            grid-column: 5 / -1
+            grid-column: 4 / -1
 
         .img-shadow 
-            transform: scaleY(0)
             grid-row: 1 / -1
-            &.animate 
-                transition: .5s ease-out
-                transform: scaleY(1)
 
         .img-shadow_left
-            grid-column: 2 / span 4
+            grid-column: 2 / span 5
 
         .img-shadow_right
             grid-column: 7 / -2
-
+        .project-list 
+            grid-column: 12
+            grid-row: 2
+            height: 100%
+            display: flex 
+            flex-direction: column 
+            align-items: flex-end
+            li 
+                writing-mode: vertical-lr
+                margin-bottom: 10px
+                font-weight: 300
         .header 
             position: relative
             grid-row: 3 
             padding-left: $padding
             transition: .4s ease-out
+            h1 
+                position: absolute
+                bottom: 0 
             &-left 
                 grid-column: 1 / span 4
                 h1 
+                    left: 0
                     margin-right: 33%
             &-right
                 grid-column: 9 / -1
                 h1 
+                    right: 0
+                    text-align: right
                     margin-left: 33%
 
-
+        .see-more 
+            grid-column: 1 / span 2 
+            grid-row: 4
+            height: 100%
+            width: 100%
+            align-self: flex-end
+            position: relative
+            // top: 50%
+            background: $brand-color
+            a 
+                width: 100%
+                height: 100%
+                justify-content: flex-start
         .header-accent
-            width: 66%
-            height: 100% 
+            width: 100%
+            height: 200% 
             transform-origin: bottom left
             position: absolute
             z-index: -1
             bottom: 0
+            left: -25%
             background: $brand-color
+            
             &.animateIn
-                transform: translateX(-40px) scaleX(0.2)
+                opacity: 0
+                transform: scaleX(0.5) translateX(-40px)
                 transition: 1s ease-out
+                will-change: transform
             &.animate 
-                transform: translateX(0) scaleX(1)
-                transition: .4s ease-out
+                animation: expandWidth 1s ease-out forwards
 
         .header-left 
             .header-accent
-                right: 0
+                left: 25% 
                 &.animateIn
                     transform-origin: right bottom
                     transform: translateX(40px) scaleX(0.2)
@@ -298,23 +356,7 @@ $offset-top: 50px
             
 
 
-        .extras-grid
-            display: grid 
-            grid-gap: $grid-gap
-            grid-template-columns: repeat(12, 1fr)
-            grid-template-rows: 40px 60vh 40px
-            .block 
-                grid-row: 2
-                display: flex
-                flex-direction: column
-                min-height: auto
-                margin: 0
-                grid-column: span 4
-
-                .header 
-                    align-self: flex-start
-                .img-container
-                    min-height: 60vh
+        
 
         .project-landing
             grid-template-rows: 40px minmax(100px, 50vh) minmax(100px, 150px)
@@ -330,7 +372,6 @@ $offset-top: 50px
                 grid-column: 5 / span 3
                 align-self: flex-end
             .img-shadow 
-                background: $accent
                 display: block
                 grid-row: 1 / -1
                 transform: scale(1)
@@ -391,10 +432,12 @@ $offset-top: 50px
         grid-column: 1 
 
     .landing-space 
-        height: 130vh
+        height: 100vh
     .js-portfolio-links 
         z-index: 10
         position: sticky
+        margin-top: 10px
+        padding-top: -10px
         height: 100vh 
         display: flex 
         justify-content: center
@@ -415,7 +458,7 @@ $offset-top: 50px
             border: none 
             background: $brand-color
             cursor: pointer
-            transform: translate(-100px, 0) scale(0.2)
+            transform: scale(0.2)
             transition: .3s ease-out .2s
             will-change: transform
             
@@ -439,14 +482,15 @@ $offset-top: 50px
             p 
                 opacity: 1
                 transform: translate(0, 0)
-                transition: .3s ease-out
+                transition: .3s ease-out .1s
             @for $i from 1 through 10
                 .anchor-delay-#{$i}
                     transition-delay: inherit !important
 
     &.animate
         button
-            transform: translate(0px, 0)
+            opacity: 1
+            transform: scale(1)
             transition: .4s ease-out
     @for $i from 1 through 10
         .anchor-delay-#{$i}
