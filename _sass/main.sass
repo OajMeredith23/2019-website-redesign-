@@ -259,9 +259,9 @@ $offset-top: 50px
         .block 
             display: grid 
             padding: 0
-            grid-template-rows: 40px 50vh minmax(auto, 100px) 40px 40px
+            grid-template-rows: 40px 50vh minmax(auto, 100px) 40px 40px 40px
             grid-template-columns: repeat(12, 1fr)
-            grid-gap: 10px
+            // grid-gap: 10px
             padding: 16px
             .img-container
                 height: 100%
@@ -313,18 +313,14 @@ $offset-top: 50px
                     margin-left: 33%
 
         .see-more 
-            grid-column: 1 / span 2 
-            grid-row: 4
+            grid-column: 6 / span 2 
+            grid-row: 5
             height: 100%
             width: 100%
             align-self: flex-end
             position: relative
-            // top: 50%
             background: $brand-color
-            a 
-                width: 100%
-                height: 100%
-                justify-content: flex-start
+            
         .header-accent
             width: 100%
             height: 200% 
@@ -336,23 +332,17 @@ $offset-top: 50px
             background: $brand-color
             
             &.animateIn
-                opacity: 0
+                // opacity: 0
                 transform: scaleX(0.5) translateX(-40px)
-                transition: 1s ease-out
                 will-change: transform
             &.animate 
-                animation: expandWidth 1s ease-out forwards
+                animation: expandWidth .4s ease-out forwards
 
         .header-left 
             .header-accent
                 left: 25% 
                 &.animateIn
                     transform-origin: right bottom
-                    transform: translateX(40px) scaleX(0.2)
-                    transition: 1s ease-out
-                &.animate 
-                    transform: translateX(0) scaleX(1)
-                    transition: .4s ease-out
             
 
 
@@ -436,7 +426,7 @@ $offset-top: 50px
     .js-portfolio-links 
         z-index: 10
         position: sticky
-        margin-top: 10px
+        margin: 10px 0 0 10px
         padding-top: -10px
         height: 100vh 
         display: flex 
