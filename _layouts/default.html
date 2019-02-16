@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width">
 
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="{{site.url}}/css/main.css">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet"> 
 
@@ -27,13 +27,13 @@
             <ul class="nav-bar">
 
                 <li class="nav-item nav-header">
-                    <a href="{{site.baseurl}}index.html#landing">
+                    <a href="{{site.url}}/index.html#landing">
                         <h1>Oliver Meredith</h1>
                     </a>
                 </li>
                 
                 <li class="nav-item">
-                    <a href="{{site.baseurl}}index.html#work">
+                    <a href="{{site.url}}index.html#work">
                         Work
                     </a>
                 </li>
@@ -66,7 +66,7 @@
         </nav>
 
         <div class="perlin-background">
-            <img src="{{site.baseurl}}assets/computational-design/perlinDots.png" alt="" class="full-img">
+            <img src="{{site.url}}/assets/computational-design/perlinDots.png" alt="" class="full-img">
         </div>
         
     
@@ -81,6 +81,7 @@
         </footer>
     </main>
 </section>
-    <script src="{{site.baseurl}}main.js"></script>
+    <script src="{{site.url}}/js/IO-polyfill.js"></script>
+    <script src="{{site.url}}/js/main.js"></script>
     </body>
 </html>
