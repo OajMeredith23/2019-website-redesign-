@@ -9,6 +9,18 @@ if(window.innerWidth >= 1280){
     let anchorLinks = [];
     const target = document.querySelector('ul.js-portfolio-links');
     const anchorLink = document.querySelectorAll('.anchor-target');
+
+    const anchorHTML = (anchLink, anchTitle, i) => { return `
+                        <a href="#${anchLink}">
+                            <li class="anchor-link">
+                                <button class="anchor-button anchor-delay-${i + 1}"  type="button">
+                                    <p>${anchTitle}</p>
+                                </button>
+                            </li>
+                        </a>
+                        `
+                        }
+    console.log(anchorHTML('a link', 'a title'));
     if(anchorLink.length){
 
         for (let i = 0; i < anchorLink.length; i++) {
@@ -16,17 +28,7 @@ if(window.innerWidth >= 1280){
             let link = attr.substring(attr.indexOf('#'));
             let title = anchorLink[i].querySelector('h1').innerHTML.trim();
             
-            anchorLinks.push(`
-                                <a href="#${link}">
-                                    <li class="anchor-link">
-                                        <button class="anchor-button anchor-delay-${i + 1}"  type="button">
-                                            <p>${title}</p>
-                                        </button>
-                                    </li>
-                                </a>
-                                `
-                            );
-                                
+            anchorLinks.push(anchorHTML(link, title, i));
 
         }
 
@@ -37,7 +39,6 @@ if(window.innerWidth >= 1280){
     const anchorButton = document.querySelectorAll('.anchor-button')
     anchorButton.forEach((elm, i) => {
       elm.addEventListener('mouseover', function(){
-          console.log(`anchor-delay-${i}`)
           elm.classList.remove(`anchor-delay-${i + 1}`);
       })  
     })
@@ -74,6 +75,14 @@ if(scrollLinks.length > -1){
 
     }
 }
+
+const addclass = (element, cls) => {
+    element.classList.add(cls);
+}
+const removeclass = (element, cls) => {
+    element.classList.remove(cls);
+}
+
 //lightbox function for images with class .lightbox-img 
 
 const lightboxItem = document.querySelectorAll('.lightbox-img');
@@ -83,9 +92,8 @@ const lightbox = document.querySelector('.lightbox')
 
 lightboxItem.forEach(e => {
     e.addEventListener('click', function(){
-        lightbox.classList.add('focused');
+        addclass(lightbox, 'focused')
         lightboxTarget.src = e.getAttribute('src');
-
     })
 })
 
@@ -93,8 +101,7 @@ function closeLightBox(elem){
     const target = document.querySelectorAll(elem);
     target.forEach(c => {
         c.addEventListener('click', function(){
-            c.parentElement.classList.remove('focused')
-            console.log(c)
+            removeclass(c.parentElement, 'focused')
         })
     })
 }
@@ -104,9 +111,7 @@ closeLightBox('.lightbox-close')
 
 const addAnimOnEnter = document.querySelectorAll('.animateIn');
 
-const addClassAnimate = element => {
-    element.classList.add('animate');
-}
+
 
 const hasclass = element => {
     element.classList.contains('.js-portfolio-links')
@@ -115,7 +120,7 @@ const hasclass = element => {
 observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.intersectionRatio > 0) {
-      addClassAnimate(entry.target);
+      addclass(entry.target, 'animate');
       observer.unobserve(entry.target);
     }
   });
@@ -127,3 +132,30 @@ window.addEventListener("load", function(){
       observer.observe(targ);
     });
 })
+
+//LAZY LOAD
+
+document.addEventListener("DOMContentLoaded", function() {
+    var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+  
+    if ("IntersectionObserver" in window) {
+      let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            let lazyImage = entry.target;
+            lazyImage.src = lazyImage.dataset.src;
+            // lazyImage.srcset = lazyImage.dataset.srcset;
+            lazyImage.classList.remove("lazy");
+            lazyImageObserver.unobserve(lazyImage);
+          }
+        });
+      });
+  
+      lazyImages.forEach(function(lazyImage) {
+        lazyImageObserver.observe(lazyImage);
+      });
+    } else {
+      // Possibly fall back to a more compatible method here
+    }
+  });
+  

@@ -1,7 +1,8 @@
 name: Oliver Meredith
 highlighter: rouge
 exclude: ["node_modules", "gulpfile.js", "package.json", "package-lock.json", ".gitignore"]
+baseurl: ../
 
 collections: 
   portfolio: 
-    output: false
+    output: true
