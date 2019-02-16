@@ -2,8 +2,8 @@ name: Oliver Meredith
 highlighter: rouge
 exclude: ["node_modules", "gulpfile.js", "package.json", "package-lock.json", ".gitignore"]
 baseurl: /2019-website-redesign-
-url: "../"
-# url: https://oajmeredith23.github.io/2019-website-redesign-
+# url: "../"
+url: https://oajmeredith23.github.io/2019-website-redesign-
 collections: 
   portfolio: 
     output: true
