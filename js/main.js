@@ -1,6 +1,6 @@
 
 
-console.log("booble")
+
 
 //Create a list of items from the current page ofeach element with an ID, and class .anchor-target, links becomes clickable and scrolls to that item
 
@@ -20,8 +20,7 @@ if(window.innerWidth >= 1280){
                         </a>
                         `
                         }
-
-
+    console.log(anchorHTML('a link', 'a title'));
     if(anchorLink.length){
 
         for (let i = 0; i < anchorLink.length; i++) {
@@ -87,8 +86,8 @@ const removeclass = (element, cls) => {
 //lightbox function for images with class .lightbox-img 
 
 const lightboxItem = document.querySelectorAll('.lightbox-img');
-const lightboxTarget = document.querySelector('.lightbox-target');
-const lightbox = document.querySelector('.lightbox');
+const lightboxTarget = document.querySelector('.lightbox-target')
+const lightbox = document.querySelector('.lightbox')
 
 
 lightboxItem.forEach(e => {
@@ -113,7 +112,7 @@ closeLightBox('.lightbox-close')
 const addAnimOnEnter = document.querySelectorAll('.animateIn');
 
 
-var observer = new IntersectionObserver(entries => {
+observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       addclass(entry.target, 'animate');
