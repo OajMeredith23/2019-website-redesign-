@@ -26,7 +26,7 @@ title: Oliver Meredith
         <section class="center-viewport anchor-target" id={{work.id}}>
             <figure class="block">
                 <div class="img-container {% if work.right? == true %} img-container_right {% endif %} {% if work.right? == false %} img-container_left {% endif %}">
-                    <a href="{% if work.ownPage? == false %} {{ work.link }} {% endif %}{% if work.ownPage? == true %} {{ work.url }} {% endif %}">
+                    <a href="{{site.url}}/{% if work.ownPage? == false %}{{ work.link }}{% endif %}{% if work.ownPage? == true %}{{ work.url }}{% endif %}">
                         <img data-src={{work.image}} alt="" class="full-img lazy">
                     </a>
                 </div>
@@ -34,14 +34,14 @@ title: Oliver Meredith
                 <div class="img-shadow {% if work.right? == true %} img-shadow_right {% endif %} {% if work.right? == false %} img-shadow_left {% endif %} animateIn"></div>
 
 
-                <a href={{work.url}} class="header {% if work.right? == true %} header-left {% endif %} {% if work.right? == false %} header-right {% endif %} animateIn">
+                <a href={{site.url}}/{{work.url}} class="header {% if work.right? == true %} header-left {% endif %} {% if work.right? == false %} header-right {% endif %} animateIn">
                     <div class="header-accent animateIn"></div>
                     <h1>
                         {{work.title}}
                     </h1>
                 </a>
                 <button class="see-more"> 
-                    <a href={{work.url}}>
+                    <a href={{site.url}}/{{work.url}}>
                         <h2>Explore</h2>
                     </a>
                 </button>
