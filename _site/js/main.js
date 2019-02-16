@@ -112,14 +112,9 @@ closeLightBox('.lightbox-close')
 const addAnimOnEnter = document.querySelectorAll('.animateIn');
 
 
-
-const hasclass = element => {
-    element.classList.contains('.js-portfolio-links')
-}
-
 observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if (entry.intersectionRatio > 0) {
+    if (entry.isIntersecting) {
       addclass(entry.target, 'animate');
       observer.unobserve(entry.target);
     }
@@ -139,6 +134,9 @@ document.addEventListener("DOMContentLoaded", function() {
     var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
   
     if ("IntersectionObserver" in window) {
+      var options = {
+        rootMargin: '300px'
+      }
       let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
@@ -146,10 +144,11 @@ document.addEventListener("DOMContentLoaded", function() {
             lazyImage.src = lazyImage.dataset.src;
             // lazyImage.srcset = lazyImage.dataset.srcset;
             lazyImage.classList.remove("lazy");
+
             lazyImageObserver.unobserve(lazyImage);
           }
         });
-      });
+      }, options);
   
       lazyImages.forEach(function(lazyImage) {
         lazyImageObserver.observe(lazyImage);
