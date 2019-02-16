@@ -347,8 +347,7 @@ body {
       display: grid;
       padding: 0;
       grid-template-rows: 40px 50vh minmax(auto, 100px) 40px 40px 40px;
-      grid-template-columns: repeat(12, 1fr);
-      padding: 16px; }
+      grid-template-columns: repeat(12, 1fr); }
       .block .img-container {
         height: 100%;
         grid-row: 2; }
