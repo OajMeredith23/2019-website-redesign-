@@ -524,6 +524,7 @@ body {
       cursor: pointer;
       -webkit-transform: scale(0.2);
               transform: scale(0.2);
+      opacity: 0;
       transition: .3s ease-out .2s;
       will-change: transform; }
     .anchor-link p {
