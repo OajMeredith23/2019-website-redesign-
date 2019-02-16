@@ -1,8 +1,10 @@
-var gulp        = require('gulp');
-var browserSync = require('browser-sync');
-var sass        = require('gulp-sass');
-var prefix      = require('gulp-autoprefixer');
-var cp          = require('child_process');
+const gulp        = require('gulp');
+const browserSync = require('browser-sync');
+const sass        = require('gulp-sass');
+const prefix      = require('gulp-autoprefixer');
+const cp          = require('child_process');
+const babel       = require('gulp-babel');
+ 
 
 var jekyll   = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
 var messages = {
@@ -15,7 +17,7 @@ var messages = {
 gulp.task('jekyll-build', function (done) {
     browserSync.notify(messages.jekyllBuild);
     return cp.spawn( jekyll , ['build'], {stdio: 'inherit'})
-        .on('close', done);
+    .on('close', done);
 });
 
 /**
@@ -35,6 +37,15 @@ gulp.task('browser-sync', ['sass', 'jekyll-build'], function() {
         }
     });
 });
+
+gulp.task('babel', () =>
+    gulp.src('js/main.js')
+        .pipe(babel({
+            presets: ['@babel/env']
+        }))
+        .pipe(gulp.dest('_site/js'))
+        .pipe(browserSync.reload({stream:true}))
+);
 
 /**
  * Compile files from _sass into both _site/css (for live injecting) and site (for future jekyll builds)
@@ -57,7 +68,8 @@ gulp.task('sass', function () {
  */
 gulp.task('watch', function () {
     gulp.watch('_sass/*.sass', ['sass']);
-    gulp.watch(['*.html', '_layouts/*.html', '_posts/*', '_includes/*', '_portfolio/*', 'js/*.js'], ['jekyll-rebuild']);
+    gulp.watch('js/*.js', ['babel']);
+    gulp.watch(['*.html', '_layouts/*.html', '_posts/*', '_includes/*', '_portfolio/*'], ['jekyll-rebuild']);
 });
 
 /**
